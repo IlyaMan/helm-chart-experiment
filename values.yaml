@@ -1,0 +1,14 @@
+replicaCount: 1
+webPageContent: "Hello World"
+vaultEnabled: false
+
+# Define validation rules for the values in this chart
+schema:
+  replicaCount: 
+    type: integer
+    minimum: 1
+    maximum: 10
+  webPageContent:
+    type: string
+  vaultEnabled:
+    type: boolean

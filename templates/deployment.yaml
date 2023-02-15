@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-ng
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: custom-ng
+  template:
+    metadata:
+      labels:
+        app: custom-ng
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80
+            - containerPort: 443
+          env:
+            - name: WEB_PAGE_CONTENT
+              value: {{ .Values.webPageContent }}
+        {{- if .Values.vaultEnabled }}
+        - name: vault
+          image: hashicorp/vault
+          ports:
+            - containerPort: 8200
+          {{- end }}

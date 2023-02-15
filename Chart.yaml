@@ -1,0 +1,5 @@
+apiVersion: v2
+icon: https://images.pexels.com/photos/12966918/pexels-photo-12966918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
+name: custom-nginx-chart
+version: 0.1.0
+description: Example helm chart with nginx.

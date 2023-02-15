@@ -1,0 +1,16 @@
+{
+   "$schema": "http://json-schema.org/draft-07/schema",
+   "properties": {
+	   "replicaCount": {
+           	"type": "integer",
+           	"minimum": 1,
+           	"maximum": 10
+	    },
+	    "webPageContent": {
+		"type": "string"
+	    },
+	    "vaultEnabled":{
+	    	"type": "boolean"
+	    }
+   }
+}
