@@ -12,6 +12,10 @@ spec:
       labels:
         app: custom-ng
     spec:
+      volumes:
+        - name: nginx-config
+          configMap:
+            name: nginx-config
       containers:
         - name: nginx
           image: nginx
@@ -21,6 +25,9 @@ spec:
           env:
             - name: WEB_PAGE_CONTENT
               value: {{ .Values.webPageContent }}
+          volumeMounts:
+            - name: nginx-config
+              mountPath: /etc/nginx/conf.d/
         {{- if .Values.vaultEnabled }}
         - name: vault
           image: hashicorp/vault
